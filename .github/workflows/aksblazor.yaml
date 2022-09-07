@@ -50,6 +50,8 @@ jobs:
               with:
                 cluster-name: ${{ env.CLUSTER_NAME }}
                 resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
+                use-kubelogin: 'true'
+                admin: 'false'
             - uses: azure/k8s-bake@v2.1
               name: Bake deployment
               with:
