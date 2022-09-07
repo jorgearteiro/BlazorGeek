@@ -44,7 +44,7 @@ jobs:
               with:
                 creds: ${{ secrets.AZURE_CREDENTIALS }}
             - name: Get K8s context
-              uses: azure/aks-set-context@v2.0
+              uses: azure/aks-set-context@v3.1
               with:
                 cluster-name: ${{ env.CLUSTER_NAME }}
                 resource-group: ${{ env.RESOURCE_GROUP }}
