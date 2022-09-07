@@ -48,7 +48,7 @@ jobs:
               with:
                 cluster-name: ${{ env.CLUSTER_NAME }}
                 resource-group: ${{ env.RESOURCE_GROUP }}
-                admin: 'true'
+                admin: 'false'
                 use-kubelogin: 'true'
             - id: get-acr-creds
               name: Get ACR credentials
@@ -93,7 +93,7 @@ jobs:
               with:
                 cluster-name: ${{ env.CLUSTER_NAME }}
                 resource-group: ${{ env.RESOURCE_GROUP }}
-                admin: 'true'
+                admin: 'false'
                 use-kubelogin: 'true'
             - id: bake
               name: Bake deployment
