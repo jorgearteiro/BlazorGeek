@@ -35,7 +35,7 @@ jobs:
         steps:
             - name: Set up kubelogin for non-interactive login
               run: |
-                curl -LO https://github.com/Azure/kubelogin/releases/download/v0.0.9/kubelogin-linux-amd64.zip
+                curl -LO https://github.com/Azure/kubelogin/releases/download/v0.0.20/kubelogin-linux-amd64.zip
                 sudo unzip -j kubelogin-linux-amd64.zip -d /usr/local/bin
                 rm -f kubelogin-linux-amd64.zip
                 kubelogin --version 
@@ -80,7 +80,7 @@ jobs:
             - uses: actions/checkout@v3
             - name: Set up kubelogin for non-interactive login
               run: |
-                curl -LO https://github.com/Azure/kubelogin/releases/download/v0.0.9/kubelogin-linux-amd64.zip
+                curl -LO https://github.com/Azure/kubelogin/releases/download/v0.0.20/kubelogin-linux-amd64.zip
                 sudo unzip -j kubelogin-linux-amd64.zip -d /usr/local/bin
                 rm -f kubelogin-linux-amd64.zip
                 kubelogin --version 
