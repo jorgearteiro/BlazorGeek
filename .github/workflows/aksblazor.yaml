@@ -8,7 +8,7 @@ env:
     ACR_RESOURCE_GROUP: aks-demo
     AZURE_CONTAINER_REGISTRY: cdacn
     CHART_OVERRIDE_PATH: ./charts/values.yaml
-    CHART_OVERRIDES: "imagekey.tag:${{ github.sha }}"
+    CHART_OVERRIDES: "imageKey.tag:${{ github.sha }}"
     CHART_PATH: ./charts
     CLUSTER_NAME: aks-blazor
     CLUSTER_RESOURCE_GROUP: aks-blazor
