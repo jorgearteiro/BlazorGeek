@@ -33,6 +33,12 @@ jobs:
             id-token: write
         runs-on: ubuntu-latest
         steps:
+            - name: Set up kubelogin for non-interactive login
+              run: |
+                curl -LO https://github.com/Azure/kubelogin/releases/download/v0.0.9/kubelogin-linux-amd64.zip
+                sudo unzip -j kubelogin-linux-amd64.zip -d /usr/local/bin
+                rm -f kubelogin-linux-amd64.zip
+                kubelogin --version 
             - name: Azure login
               uses: azure/login@v1.4.3
               with:
@@ -42,6 +48,8 @@ jobs:
               with:
                 cluster-name: ${{ env.CLUSTER_NAME }}
                 resource-group: ${{ env.RESOURCE_GROUP }}
+                admin: 'false'
+                use-kubelogin: 'true'
             - id: get-acr-creds
               name: Get ACR credentials
               run: |
@@ -70,15 +78,23 @@ jobs:
             - createSecret
         steps:
             - uses: actions/checkout@v3
+            - name: Set up kubelogin for non-interactive login
+              run: |
+                curl -LO https://github.com/Azure/kubelogin/releases/download/v0.0.9/kubelogin-linux-amd64.zip
+                sudo unzip -j kubelogin-linux-amd64.zip -d /usr/local/bin
+                rm -f kubelogin-linux-amd64.zip
+                kubelogin --version 
             - name: Azure login
               uses: azure/login@v1.4.3
               with:
                 creds: ${{ secrets.AZURE_CREDENTIALS }}
             - name: Get K8s context
-              uses: azure/aks-set-context@v2.0
+              uses: azure/aks-set-context@v3.1
               with:
                 cluster-name: ${{ env.CLUSTER_NAME }}
                 resource-group: ${{ env.RESOURCE_GROUP }}
+                admin: 'false'
+                use-kubelogin: 'true'
             - id: bake
               name: Bake deployment
               uses: azure/k8s-bake@v2.1
