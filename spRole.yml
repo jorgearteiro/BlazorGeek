@@ -1,0 +1,23 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: blazorgeek-app-full-access-role
+  namespace: aks-blazor
+rules:
+- apiGroups: [""]
+  resources: ["*"]
+  verbs: ["*"]
+--- 
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: blazorgeek-app-full-access-role-binding
+  namespace: aks-blazor
+subjects:
+- kind: User
+  name: 9913665e-9bba-4e08-a7d3-7146808ae14f
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: blazorgeek-app-full-access-role
+  apiGroup: rbac.authorization.k8s.io
