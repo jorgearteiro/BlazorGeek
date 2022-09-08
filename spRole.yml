@@ -4,7 +4,7 @@ metadata:
   name: blazorgeek-app-full-access-role
   namespace: aks-blazor
 rules:
-- apiGroups: [""]
+- apiGroups: ["", "extensions", "apps"]
   resources: ["*"]
   verbs: ["*"]
 --- 
