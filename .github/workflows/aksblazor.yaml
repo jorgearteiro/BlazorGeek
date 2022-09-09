@@ -24,7 +24,6 @@ jobs:
             - uses: azure/login@v1.4.3
               name: Azure login
               with:
-                base_image: raspios_lite_arm64:latest
                 client-id: ${{ secrets.AZURE_CLIENT_ID }}
                 subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
                 tenant-id: ${{ secrets.AZURE_TENANT_ID }}
